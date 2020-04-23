@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String lapS = "Laps: ";
     private MediaPlayer mp;
     private View view;
+    private String test = "Test String";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
