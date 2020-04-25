@@ -5,4 +5,7 @@
     <string name="title_activity_showcase_acitivity">ShowcaseAcitivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="default_timer">Timer Text</string>
+    <string name="default_lap">Lap Text</string>
 </resources>

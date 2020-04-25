@@ -42,6 +42,7 @@ public class OnSwipeTouchListener implements OnTouchListener {
             return true;
         }
 
+
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             boolean result = false;
