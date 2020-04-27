@@ -221,8 +221,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private void nextActivity() {
 
-        Intent intent = new Intent(this, ShowcaseAcitivity.class);
-        intent.putExtra("Laps", laps);
+        Intent intent = new Intent(this, Other_Activity.class);
+        intent.putExtra("Laps", this.laps);
         startActivity(intent);
     }
 
