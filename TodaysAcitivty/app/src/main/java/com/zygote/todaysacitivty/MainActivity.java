@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().hide();
+
         date_display = findViewById(R.id.date_display);
         timerDisp = findViewById(R.id.timer_display);
         lapDisp = findViewById(R.id.lap_display);
@@ -198,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public boolean isRunning() {
-                return time > 0 ? true : false;
+                return time > 0;
             }
 
         };

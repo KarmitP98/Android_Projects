@@ -23,6 +23,8 @@ public class Other_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_);
 
+        getSupportActionBar().hide();
+
         pushupEdit = findViewById(R.id.pushup_edit);
         dumbellEdit = findViewById(R.id.dumbell_edit);
         nextAct = findViewById(R.id.next_act_swipe);
@@ -48,7 +50,7 @@ public class Other_Activity extends AppCompatActivity {
         this.dumbells = Integer.parseInt(String.valueOf(dumbellEdit.getText()));
         this.pushups = Integer.parseInt(String.valueOf(pushupEdit.getText()));
 
-        Intent intent = new Intent(this, ShowcaseAcitivity.class);
+        Intent intent = new Intent(this, Showcase_activity.class);
         intent.putExtra("Pushups", this.pushups);
         intent.putExtra("Dumbells", this.dumbells);
         intent.putExtra("Laps", this.laps);
