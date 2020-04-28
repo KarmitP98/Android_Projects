@@ -1,6 +1,7 @@
 package com.zygote.test_application;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Test_TAG";
     private EditText inputEdit;
-    private Button saveBtn, readBtn, resetBtn;
+    private Button saveBtn, readBtn, resetBtn, nextBtn;
     private TextView outputText;
     private String value, fileName = "TestFile.txt";
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         readBtn = findViewById(R.id.read_btn);
         outputText = findViewById(R.id.output_text);
         resetBtn = findViewById(R.id.reset_file);
+        nextBtn = findViewById(R.id.next_btn);
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +61,18 @@ public class MainActivity extends AppCompatActivity {
                 resetFile(fileName);
             }
         });
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextActivity();
+            }
+        });
+    }
+
+    private void nextActivity() {
+        Intent intent = new Intent(this, DisplayActivity.class);
+        startActivity(intent);
     }
 
     private void resetFile(String fileName) {

@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout controlsView;
     private boolean paused = true;
     private CountDownTimer ct;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
