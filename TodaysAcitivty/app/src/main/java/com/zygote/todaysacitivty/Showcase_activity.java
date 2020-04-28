@@ -107,13 +107,21 @@ public class Showcase_activity extends AppCompatActivity {
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                String date = dayOfMonth + "/" + (month) + "/" + year;
-                datePicker.setText(date);
+                setDate(dayOfMonth, month, year);
+                if (!dates.get(dates.size() - 1).equals(date)) {
+                    lapText.setText("Data not found for this day");
+                    pushText.setText("");
+                    dumbText.setText("");
+                } else {
+                    setData();
+                    updateDisplay();
+                }
             }
         };
 
     }
 
+    @SuppressLint("SetTextI18n")
     private void readFile(String fileName) {
         String ret = "";
 
@@ -138,10 +146,13 @@ public class Showcase_activity extends AppCompatActivity {
                 inputStream.close();
                 ret = stringBuilder.toString();
 
-                if (!dates.get(dates.size()).equals(date)) {
+                if (!dates.get(dates.size() - 1).equals(date)) {
                     lapText.setText("Data not found for this day");
                     pushText.setText("");
                     dumbText.setText("");
+                } else {
+                    setData();
+                    updateDisplay();
                 }
 
                 // WORK needs to be done
@@ -179,4 +190,11 @@ public class Showcase_activity extends AppCompatActivity {
         date = day + "/" + month + "/" + year;
         datePicker.setText(day + " " + months.get(month) + ", " + year);
     }
+
+    private void setData() {
+        this.laps = lapData.get(date);
+        this.pushups = pushData.get(date);
+        this.dumbells = dumbData.get(date);
+    }
+
 }

@@ -103,15 +103,6 @@ public class MainActivity extends AppCompatActivity {
                 nextActivity();
             }
         });
-
-//        timerView.setOnTouchListener(new OnSwipeTouchListener(this){
-//            @Override
-//            public void onSwipeLeft() {
-//                super.onSwipeLeft();
-//                nextActivity();
-//            }
-//        });
-
     }
 
     /*
@@ -262,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
      */
     @SuppressLint("SetTextI18n")
     private void updateLaps() {
-        lapDisp.setText(Integer.toString(laps));
+        lapDisp.setText(laps + "");
     }
 
 
