@@ -2,6 +2,7 @@ package com.zygote.todaysacitivty;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -21,19 +22,19 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int SWIPE_THRESHOLD = 100;
     private static final int SWIPE_VELOCITY_THRESHOLD = 100;
+    private static final String TAG = "MainActivity";
     private final int RATIO = 60000;
     private TextView date_display, timerDisp, lapDisp;          // act_display;
     private Calendar c = Calendar.getInstance();
     private ArrayList<String> days = new ArrayList<>(Arrays.asList("SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY")), acts = new ArrayList<>(Arrays.asList("BREAK DAY", "ABS & QUADS", "ABS & TRICEPS", "GLUTES & BACK", "ABS & BICEP", "CHEST & BACK", "CHEST & BACK"));
     private Button pauseBtn;
-    private int laps = 0;
+    private int laps = 0, tLaps = 0;
     private long time = 20 * RATIO;
     private MediaPlayer mp;
     private ConstraintLayout timerView;
     private LinearLayout controlsView;
     private boolean paused = true;
     private CountDownTimer ct;
-    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,14 @@ public class MainActivity extends AppCompatActivity {
         controlsView = findViewById(R.id.controls_view);
         View view = findViewById(R.id.view);
 
+        getData();
         initialize();
+    }
+
+    private void getData() {
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        this.tLaps = preferences.getInt("laps", 0);
+        this.time = (long) preferences.getInt("time", 10) * RATIO;
     }
 
     /*
@@ -253,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
      */
     @SuppressLint("SetTextI18n")
     private void updateLaps() {
-        lapDisp.setText(laps + "");
+        lapDisp.setText(laps + "\tTarget: " + tLaps);
     }
 
 

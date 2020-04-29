@@ -10,13 +10,17 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Preference_Activity extends AppCompatActivity {
 
     private static final String TAG = "Preference_Activity";
     private Spinner durSpin, lapSpin, pushSpin, dumbSpin, kgSpin;
     private TextView nextAct;
     private Class nextClass = MainActivity.class;
-    private String[] values = new String[500];
+    private List<String> values = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +50,12 @@ public class Preference_Activity extends AppCompatActivity {
                 super.onSwipeLeft();
                 SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt("Time", (Integer) durSpin.getSelectedItem());
-                editor.putInt("Laps", (Integer) lapSpin.getSelectedItem());
-                editor.putInt("Pushups", (Integer) pushSpin.getSelectedItem());
-                editor.putInt("Dumbells", (Integer) dumbSpin.getSelectedItem());
-                editor.putInt("Weight", (Integer) kgSpin.getSelectedItem());
-                editor.putBoolean("New User", true);
+                editor.putInt("time", Integer.parseInt((String) durSpin.getSelectedItem()));
+                editor.putInt("laps", Integer.parseInt((String) lapSpin.getSelectedItem()));
+                editor.putInt("pushups", Integer.parseInt((String) pushSpin.getSelectedItem()));
+                editor.putInt("dumbells", Integer.parseInt((String) dumbSpin.getSelectedItem()));
+                editor.putInt("weight", Integer.parseInt((String) kgSpin.getSelectedItem()));
+                editor.putBoolean("newUser", false);
                 editor.commit();
                 Intent outIntent = new Intent(Preference_Activity.this, nextClass);
                 startActivity(outIntent);
@@ -72,7 +76,8 @@ public class Preference_Activity extends AppCompatActivity {
     }
 
     private void setValues() {
-        for (int i = 1; i < 500; i++)
-            values[i] = Integer.toString(i);
+        for (int i = 1; i < 500; i++) {
+            values.add(Integer.toString(i));
+        }
     }
 }

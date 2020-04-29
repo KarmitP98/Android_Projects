@@ -3,6 +3,7 @@ package com.zygote.todaysacitivty;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -29,15 +30,16 @@ public class Showcase_activity extends AppCompatActivity {
 
     private static final String TAG = "Showcase_activity";
     private TextView lapText, dumbText, pushText, datePicker;
-    private int laps, dumbells, pushups, cday, cmonth, cyear;
+    private int laps, dumbells, pushups, cday, cmonth, cyear, tLaps, tdumbells, tpushups, weight;
     private View view;
     private String fileName, date;
-    private HashMap<String, Integer> lapData = new HashMap<>(), pushData = new HashMap<>(), dumbData = new HashMap<>();
+    private HashMap<String, Integer> lapData = new HashMap<>(), pushData = new HashMap<>(), dumbData = new HashMap<>(), weightData = new HashMap<>(), tLapData = new HashMap<>(), tDumbData = new HashMap<>(), tPushData = new HashMap<>();
     private List<String> dates = new ArrayList<>();
     private DatePickerDialog.OnDateSetListener dateSetListener;
     private Calendar c = Calendar.getInstance();
     private ArrayList<String> months = new ArrayList<>(Arrays.asList("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"));
     private Button devBtn;
+    private int time;
 
 
     @SuppressLint("SetTextI18n")
@@ -66,6 +68,8 @@ public class Showcase_activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        getPreferenceData();
 
         // Sets today's date
         setCurrentDate();
@@ -121,6 +125,15 @@ public class Showcase_activity extends AppCompatActivity {
 
     }
 
+    private void getPreferenceData() {
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        this.tLaps = preferences.getInt("laps", 0);
+        this.tpushups = preferences.getInt("pushups", 0);
+        this.tdumbells = preferences.getInt("dumbells", 0);
+        this.weight = preferences.getInt("weight", 0);
+        this.time = preferences.getInt("time", 0);
+    }
+
     @SuppressLint("SetTextI18n")
     private void readFile(String fileName) {
         String ret = "";
@@ -172,8 +185,8 @@ public class Showcase_activity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void updateDisplay() {
-        lapText.setText(laps + " Laps in 20 mins @" + (laps / 20.0) + " laps/min");
-        dumbText.setText(dumbells + " dumbells curves @ 7 Kg");
+        lapText.setText(laps + " Laps in " + time + " mins @" + (laps / (time * 1.0)) + " laps/min");
+        dumbText.setText(dumbells + " dumbells curves @ " + weight + " Kg");
         pushText.setText(pushups + " pushups");
     }
 

@@ -112,45 +112,55 @@
 
     <Spinner
         android:id="@+id/dur_spin"
-        android:layout_width="50dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:dropDownWidth="match_parent"
+        android:hapticFeedbackEnabled="true"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7" />
 
     <Spinner
         android:id="@+id/lap_spin"
-        android:layout_width="50dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:dropDownWidth="match_parent"
+        android:hapticFeedbackEnabled="true"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
         app:layout_constraintStart_toEndOf="@+id/textView7" />
 
     <Spinner
         android:id="@+id/push_spin"
-        android:layout_width="50dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:dropDownWidth="match_parent"
+        android:hapticFeedbackEnabled="true"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintStart_toEndOf="@+id/textView6" />
 
     <Spinner
         android:id="@+id/dumb_spin"
-        android:layout_width="50dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:dropDownWidth="match_parent"
+        android:hapticFeedbackEnabled="true"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
         app:layout_constraintStart_toEndOf="@+id/textView6" />
 
     <Spinner
         android:id="@+id/weight_spin"
-        android:layout_width="50dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:dropDownWidth="match_parent"
+        android:hapticFeedbackEnabled="true"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="@+id/textView9"
         app:layout_constraintStart_toEndOf="@+id/textView9" />
