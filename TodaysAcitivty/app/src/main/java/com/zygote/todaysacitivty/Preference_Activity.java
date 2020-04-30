@@ -50,12 +50,12 @@ public class Preference_Activity extends AppCompatActivity {
                 super.onSwipeLeft();
                 SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt("time", Integer.parseInt((String) durSpin.getSelectedItem()));
-                editor.putInt("laps", Integer.parseInt((String) lapSpin.getSelectedItem()));
-                editor.putInt("pushups", Integer.parseInt((String) pushSpin.getSelectedItem()));
-                editor.putInt("dumbells", Integer.parseInt((String) dumbSpin.getSelectedItem()));
-                editor.putInt("weight", Integer.parseInt((String) kgSpin.getSelectedItem()));
-                editor.putBoolean("newUser", false);
+                editor.putInt("timeKey", Integer.parseInt((String) durSpin.getSelectedItem()));
+                editor.putInt("lapKey", Integer.parseInt((String) lapSpin.getSelectedItem()));
+                editor.putInt("pushKey", Integer.parseInt((String) pushSpin.getSelectedItem()));
+                editor.putInt("dumbKey", Integer.parseInt((String) dumbSpin.getSelectedItem()));
+                editor.putInt("kgKey", Integer.parseInt((String) kgSpin.getSelectedItem()));
+                editor.putBoolean("userKey", false);
                 editor.commit();
                 Intent outIntent = new Intent(Preference_Activity.this, nextClass);
                 startActivity(outIntent);

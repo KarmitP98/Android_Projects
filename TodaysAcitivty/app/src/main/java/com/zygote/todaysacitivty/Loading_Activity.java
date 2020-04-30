@@ -21,15 +21,15 @@ public class Loading_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_loading_);
 
         getSupportActionBar().hide();
-        getData();
+        getPreferences();
         startTimer();
 
     }
 
     // Get data from shared preferences and see if the preferences have been set or not.
-    private void getData() {
+    private void getPreferences() {
         SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
-        newUser = sharedPreferences.getBoolean("newUser", true);
+        newUser = sharedPreferences.getBoolean("userKey", true);
         Log.i(TAG, "getData: New User: " + (newUser ? "YES" : "NO"));
     }
 

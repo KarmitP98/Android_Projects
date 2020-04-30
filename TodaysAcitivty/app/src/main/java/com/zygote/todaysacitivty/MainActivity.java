@@ -50,14 +50,14 @@ public class MainActivity extends AppCompatActivity {
         controlsView = findViewById(R.id.controls_view);
         View view = findViewById(R.id.view);
 
-        getData();
         initialize();
+        getPreferences();
     }
 
-    private void getData() {
+    private void getPreferences() {
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        this.tLaps = preferences.getInt("laps", 0);
-        this.time = (long) preferences.getInt("time", 10) * RATIO;
+        this.tLaps = preferences.getInt("lapKey", 0);
+        this.time = preferences.getInt("timeKey", 10) * RATIO;
     }
 
     /*

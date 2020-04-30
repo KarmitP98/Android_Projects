@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Test_TAG";
     private EditText inputEdit;
-    private Button saveBtn, readBtn, resetBtn, nextBtn;
+    private Button saveBtn, readBtn, resetBtn, dispBtn, prefBtn;
     private TextView outputText;
     private String value, fileName = "TestFile.txt";
 
@@ -33,10 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
         inputEdit = findViewById(R.id.input_edit);
         saveBtn = findViewById(R.id.save_btn);
-        readBtn = findViewById(R.id.read_btn);
+        readBtn = findViewById(R.id.reset_btn);
         outputText = findViewById(R.id.output_text);
         resetBtn = findViewById(R.id.reset_file);
-        nextBtn = findViewById(R.id.next_btn);
+        dispBtn = findViewById(R.id.disp_btn);
+        prefBtn = findViewById(R.id.pref_btn);
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,17 +63,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        nextBtn.setOnClickListener(new View.OnClickListener() {
+        dispBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextActivity();
+                Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
+                startActivity(intent);
             }
         });
-    }
 
-    private void nextActivity() {
-        Intent intent = new Intent(this, DisplayActivity.class);
-        startActivity(intent);
+        prefBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Preferences_Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void resetFile(String fileName) {

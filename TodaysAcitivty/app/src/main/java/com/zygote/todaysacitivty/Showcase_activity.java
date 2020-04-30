@@ -69,7 +69,7 @@ public class Showcase_activity extends AppCompatActivity {
             }
         });
 
-        getPreferenceData();
+        getPreferences();
 
         // Sets today's date
         setCurrentDate();
@@ -125,13 +125,13 @@ public class Showcase_activity extends AppCompatActivity {
 
     }
 
-    private void getPreferenceData() {
+    private void getPreferences() {
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        this.tLaps = preferences.getInt("laps", 0);
-        this.tpushups = preferences.getInt("pushups", 0);
-        this.tdumbells = preferences.getInt("dumbells", 0);
-        this.weight = preferences.getInt("weight", 0);
-        this.time = preferences.getInt("time", 0);
+        this.tLaps = preferences.getInt("lapKey", 0);
+        this.tpushups = preferences.getInt("pushKey", 0);
+        this.tdumbells = preferences.getInt("dumbKey", 0);
+        this.weight = preferences.getInt("kgKey", 0);
+        this.time = preferences.getInt("timeKey", 0);
     }
 
     @SuppressLint("SetTextI18n")
